@@ -10,6 +10,7 @@ class CreateUserTest < ActionDispatch::IntegrationTest
     click_button "Create Account"
 
     assert_current_path(tasks_path)
+    assert page.has_content?("Sign Out")
   end
 
   test "user email must be unique" do

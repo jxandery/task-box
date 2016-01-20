@@ -12,6 +12,8 @@
       <%= content_tag(:div, value, :class => "flash #{key}") %>
     <% end %>
 
+    <%= link_to "Sign Out", logout_path, method: :delete %>
+
 <%= yield %>
 
 </body>
