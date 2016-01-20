@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :index, :create]
   resources :tasks, only: [:index]
+  resources :tasks_lists
 
   get     '/login',   to: 'sessions#new'
   post    '/login',   to: 'sessions#create'

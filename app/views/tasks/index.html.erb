@@ -1,1 +1,27 @@
-<h1>Tasks by Jack<h1>
+<div class="container">
+  <h1>Tasks by Jack<h1>
+
+      <h1>Create a new Task List</h1>
+
+      <%= form_for(@tasks_list) do |f| %>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+        <%= f.label :description %>
+        <%= f.text_field :description %>
+
+        <%= f.submit "Create Task List" %>
+      <% end %>
+
+      <h1>Tasks Lists</h1>
+      <section class="taskslists">
+        <% @lists.each do |list| %>
+          <ul>
+            <li><%= list.title %>: <%= list.description %></li>
+            <%= link_to "Edit", edit_tasks_list_path(list) %>
+            <%= link_to "Delete", tasks_list_path(list), method: :delete %>
+          </ul>
+        <% end %>
+
+      </section>
+</div>
