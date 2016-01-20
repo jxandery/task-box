@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       #session[:user_id] = @user.id
-      redirect_to login_path
+      redirect_to tasks_path
     else
       flash[:alert] = "Invalid email address or password"
       render 'new'

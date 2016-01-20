@@ -9,7 +9,7 @@ class CreateUserTest < ActionDispatch::IntegrationTest
     fill_in "Password confirmation", with: "password"
     click_button "Create Account"
 
-    assert_current_path(login_path)
+    assert_current_path(tasks_path)
   end
 
   test "user email must be unique" do
