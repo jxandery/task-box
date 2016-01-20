@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to tasks_path
     else
+      flash[:alert] = "Invalid email address or password"
       render 'new'
     end
   end

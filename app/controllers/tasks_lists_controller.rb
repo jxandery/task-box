@@ -12,7 +12,7 @@ class TasksListsController < ApplicationController
   end
 
   def create
-    @tasks_list = TasksList.create(tasks_list_params)
+    @tasks_list = current_user.tasks_lists.create(tasks_list_params)
     if @tasks_list.save
       redirect_to tasks_path
     else
