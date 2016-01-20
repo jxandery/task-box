@@ -10,4 +10,9 @@ class UserTest < ActiveSupport::TestCase
     user = User.new(password: 'password', password_confirmation: 'password')
     refute(user.valid?)
   end
+
+  test 'it should be invalid without password' do
+    user = User.new(email_address: 'simple@example.com', password_confirmation: 'password')
+    refute(user.valid?)
+  end
 end
