@@ -11,7 +11,7 @@ class UsersController < ApplicationController
   def create
     @user = User.create(user_params)
     if @user.save
-      #session[:user_id] = @user.id
+      session[:user_id] = @user.id
       redirect_to tasks_path
     else
       flash[:alert] = "Invalid email address or password"

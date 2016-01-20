@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>TaskBox</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>TaskBox</title>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
 
     <% flash.each do |key, value| %>
       <%= content_tag(:div, value, :class => "flash #{key}") %>
     <% end %>
 
+    <% if current_user %>
+      Welcome, <%= current_user.email_address %>
     <%= link_to "Sign Out", logout_path, method: :delete %>
+  <% end %>
 
-<%= yield %>
+  <%= yield %>
 
-</body>
+  </body>
 </html>
