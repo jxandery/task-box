@@ -6,16 +6,19 @@
       <h1>Tasks Lists</h1>
       <section class="taskslists">
         <% @lists.each do |list| %>
-          <p>Title: <%= list.title %></p>
-          <p>Description: <%= list.description %></p>
+          <p>List Title: <%= list.title %> &nbsp&nbsp&nbsp&nbsp Description: <%= list.description %></p>
           <%= link_to "Edit", edit_tasks_list_path(list) %>
           <%= link_to "Delete", tasks_list_path(list), method: :delete %>
           <%= link_to "Create a new Task", new_task_path(list_id: list.id) %>
 
-      <h3>Tasks</h3>
+          <h3>Tasks</h3>
           <% list.tasks.each do |task| %>
-            <%#<p><%= task.title %></p>%>
-            <p><%= link_to task.title, task_path(task) %></p>
+            <ul><%= task.title %>
+            <ul><%= task.due %>
+            <%= link_to "Edit", edit_task_path(task) %>
+            <%= link_to "Delete", tasks_path(task), method: :delete %>
+            </ul>
+            <p>==================================================</p>
           <% end %>
 
         <% end %>
