@@ -1,27 +1,29 @@
 <div class="container">
   <h1>Tasks by Jack<h1>
 
-      <%= link_to "Create a new Task List", new_tasks_list_path %>
 
       <h1>Tasks Lists</h1>
-      <section class="taskslists">
-        <% @lists.each do |list| %>
-          <p>List Title: <%= list.title %> &nbsp&nbsp&nbsp&nbsp Description: <%= list.description %></p>
-          <%= link_to "Edit", edit_tasks_list_path(list) %>
-          <%= link_to "Delete", tasks_list_path(list), method: :delete %>
-          <%= link_to "Create a new Task", new_task_path(list_id: list.id) %>
+      <h4><%= link_to "Create a new Task List", new_tasks_list_path %><h4>
+          <section class="taskslists">
+            <% @lists.each do |list| %>
+              <h3>List Title: <%= list.title %> &nbsp&nbsp&nbsp&nbsp Description: <%= list.description %></h3>
+              <%= link_to "Edit", edit_tasks_list_path(list) %>
+              <%= link_to "Delete", tasks_list_path(list), method: :delete %>
 
-          <h3>Tasks</h3>
-          <% list.tasks.each do |task| %>
-            <ul><%= task.title %>
-            <ul><%= task.due %>
-            <%= link_to "Edit", edit_task_path(task) %>
-            <%= link_to "Delete", task_path(task), method: :delete %>
-            </ul>
-            <p>==================================================</p>
-          <% end %>
+              <h3>Tasks</h3>
+              <% list.tasks.each do |task| %>
+                <ul>Title: <%= task.title %></ul>
+                <ul>Completed: <%= task.completed %></ul>
+                <ul>Notes: <%= task.notes %></ul>
+                <ul>Due: <%= task.due %></ul>
+                <ul>Start: <%= task.start %></ul>
+                <%= link_to "Edit", edit_task_path(task) %>
+                <%= link_to "Delete", task_path(task), method: :delete %>
+              <% end %>
+              <%= link_to "Create a new Task", new_task_path(list_id: list.id) %>
+              <p>==================================================</p>
 
-        <% end %>
+            <% end %>
 
-      </section>
+          </section>
 </div>
