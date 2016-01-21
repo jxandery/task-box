@@ -1,0 +1,13 @@
+
+<h1>Create a new Task</h1>
+
+<%= form_for(@task) do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.label :notes %>
+  <%= f.text_field :notes %>
+  <%= hidden_field_tag(:tasks_list_id, params[:list_id]) %>
+
+  <%= f.submit "Create Task" %>
+<% end %>
